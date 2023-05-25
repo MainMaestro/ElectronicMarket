@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicMarket.Domain", "ElectronicMarket.Domain\ElectronicMarket.Domain.csproj", "{73CCD6A5-F348-431A-83C3-98C62844EA8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicMarket.Mvc", "ElectronicMarket.Mvc\ElectronicMarket.Mvc.csproj", "{274589D2-F1F6-4163-B8AB-C2D52701B70C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73CCD6A5-F348-431A-83C3-98C62844EA8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73CCD6A5-F348-431A-83C3-98C62844EA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73CCD6A5-F348-431A-83C3-98C62844EA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73CCD6A5-F348-431A-83C3-98C62844EA8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{274589D2-F1F6-4163-B8AB-C2D52701B70C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{274589D2-F1F6-4163-B8AB-C2D52701B70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{274589D2-F1F6-4163-B8AB-C2D52701B70C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{274589D2-F1F6-4163-B8AB-C2D52701B70C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0F80D8C-BC75-41AE-8CF0-7E3CF43B8CBE}
+	EndGlobalSection
+EndGlobal
