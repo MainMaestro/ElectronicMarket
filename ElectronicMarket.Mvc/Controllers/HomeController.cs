@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using ElectronicMarket.Mvc.Models;
+using ElectronicMarket.Mvc.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ElectronicMarket.Mvc.Controllers;
@@ -14,7 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        return View(new HomeIndexViewModel());
     }
 
     public IActionResult Privacy()

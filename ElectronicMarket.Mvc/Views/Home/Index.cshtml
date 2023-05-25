@@ -1,8 +1,33 @@
-﻿@{
+﻿@model HomeIndexViewModel
+@{
     ViewData["Title"] = "Home Page";
+
+    Model.Categories = new[]
+    {
+        new Category{Name = "TV"},
+        new Category{Name = "Smartphones"},
+        new Category{Name = "PC"},
+        new Category{Name = "Headphones"},
+        new Category{Name = "Бытовая техника"},
+        new Category{Name = "Photo/video"},
+    };
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+<div class="my-5 text-center display-3">Catalog</div>
+
+<div class="row g-5 justify-content-center">
+    @foreach (var item in Model.Categories)
+    {
+        <div class="col-12 col-md-5">
+            <a class="card text-decoration-none btn btn-secondary">
+                <div class="card-body text-center">
+                    <div class="h2">
+                        @item.Name
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
 </div>
