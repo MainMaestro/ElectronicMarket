@@ -4,6 +4,7 @@ using ElectronicMarket.Mvc.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElectronicMarket.Mvc.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230526140821_Migration002")]
+    partial class Migration002
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,22 +24,6 @@ namespace ElectronicMarket.Mvc.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("ElectronicMarket.Domain.Models.Shop.Cart", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Carts");
-                });
 
             modelBuilder.Entity("ElectronicMarket.Domain.Models.Shop.Category", b =>
                 {
@@ -65,9 +52,6 @@ namespace ElectronicMarket.Mvc.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("CartId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -87,8 +71,6 @@ namespace ElectronicMarket.Mvc.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CartId");
 
                     b.HasIndex("CategoryId1");
 
@@ -297,23 +279,8 @@ namespace ElectronicMarket.Mvc.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ElectronicMarket.Domain.Models.Shop.Cart", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("ElectronicMarket.Domain.Models.Shop.Product", b =>
                 {
-                    b.HasOne("ElectronicMarket.Domain.Models.Shop.Cart", null)
-                        .WithMany("Products")
-                        .HasForeignKey("CartId");
-
                     b.HasOne("ElectronicMarket.Domain.Models.Shop.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId1")
@@ -372,11 +339,6 @@ namespace ElectronicMarket.Mvc.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ElectronicMarket.Domain.Models.Shop.Cart", b =>
-                {
-                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
