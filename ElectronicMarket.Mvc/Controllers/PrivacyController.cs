@@ -2,9 +2,9 @@
 
 namespace ElectronicMarket.Mvc.Controllers
 {
-    public class AboutController : Controller
+    public class PrivacyController : Controller
     {
-        public IActionResult About()
+        public IActionResult Privacy()
         {
             return View();
         }

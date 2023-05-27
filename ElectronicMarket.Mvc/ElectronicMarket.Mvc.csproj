@@ -20,4 +20,8 @@
     <ProjectReference Include="..\ElectronicMarket.Domain\ElectronicMarket.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Privacy\" />
+  </ItemGroup>
+
 </Project>
