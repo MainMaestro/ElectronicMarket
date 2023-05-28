@@ -1,0 +1,16 @@
+﻿:root {
+	--bs-primary-rgb: 79, 128, 255;
+	--bs-secondary-rgb: 229, 0, 126;
+	--accent-color: #E5007E
+}
+.btn-secondary {
+}
+.btn-accent {
+	background-color: var(--accent-color);
+	color: white;
+	border-radius: 10px;
+}
+	.btn-accent:hover {
+		background-color: var(--accent-color);
+		color: white;
+	}

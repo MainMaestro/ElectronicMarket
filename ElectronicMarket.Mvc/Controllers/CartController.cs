@@ -6,17 +6,32 @@ namespace ElectronicMarket.Mvc.Controllers
 {
     public class CartController : Controller
     {
-        private readonly CartManager manager;
+        private readonly CartManager _cartManager;
+        private readonly OrderManager _orderManager;
+
+        public CartController(CartManager cartManager, OrderManager orderManager)
+        {
+            _cartManager = cartManager;
+            _orderManager = orderManager;
+        }
 
         [Authorize]
         public IActionResult Index()
         {
-            var cart = manager.GetCart(User);
+            var cart = _cartManager.GetCart(User);
             return View(cart);
         }
-        public CartController(CartManager manager)
+        [HttpPost, Authorize]
+        public IActionResult CreateOrder()
         {
-            this.manager = manager;
+            _orderManager.CreateOrder(_cartManager.GetCart(User));
+            return RedirectToAction("Index");
+        }
+        [HttpPost, Authorize]
+        public IActionResult RemoveItem(string productId)
+        {
+            _cartManager.RemoveProduct(User, productId);
+            return RedirectToAction("Index");
         }
     }
 }

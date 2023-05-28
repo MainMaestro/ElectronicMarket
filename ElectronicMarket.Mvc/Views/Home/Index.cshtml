@@ -3,25 +3,25 @@
 
 @{
     ViewData["Title"] = "Home Page";
-   
+
 }
-<div style="overflow-x:hidden;" >
+<div style="overflow-x:hidden;">
     <div class="position-absolute text-white fs-1" style="padding-left: 100px; padding-top:140px;">
         <h1>Покупайте электронику <br /> по выгодным ценам</h1>
-        <a asp-controller="Catalog" asp-action="Index" class="btn" style="background-color:#E5007E; color:white; border-radius:10px;">Перейти в каталог</a>
+        <a asp-controller="Catalog" asp-action="Index" class="btn btn-accent" style="">Перейти в каталог</a>
     </div>
-    <img  class="object-fit-cover" src="~/хедер.jpg" />
+    <img class="object-fit-cover" src="~/хедер.jpg" />
 
 </div>
 <div class="c-container" style="margin-left:6rem; margin-right:6rem;">
-   
-    
+
+
     <div>
         <h2 class="d-flex justify-content-center" style="margin-top:100px; margin-bottom:100px;">
             Каталог
         </h2>
         <div class="row justify-content-center">
-            @foreach(var cat in Model)
+            @foreach (var cat in Model)
             {
                 <div class="col-md-4 " style="text-align:center;">
                     <a asp-controller="Catalog" asp-action="Index" asp-route-id="@cat.Id" class="nav-link fs-3 text-center text-decoration-none">
@@ -34,20 +34,20 @@
             }
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="text-center h2 col-12 my-5">
+    <div class="row justify-content-center g-2">
+        <div class="text-center h2 col-12 mt-5">
             О компании
         </div>
-        
-            <div class="col-12 col-md-5">
-                <img class="img-fluid" src="~/компания.jpg" />
-            </div>
-            <div class=" col-12 col-md-7 fs-5">
+
+        <div class="col-12 col-md-4">
+            <img class="img-fluid" src="~/компания.jpg" />
+        </div>
+        <div class="col-12 col-md-8 fs-5 p-3">
             Добро пожаловать в нашу компанию, где ваша технологическая мечта становится реальностью!
             Мы гордимся тем, что предлагаем широкий ассортимент современной электроники, который удовлетворит все ваши потребности. Наш магазин является идеальным местом для всех электронных энтузиастов, от любителей гаджетов до профессиональных пользователей.
             У нас вы найдете все, что нужно для своего дома, офиса или развлечений. Наша команда профессионалов всегда готова предоставить вам экспертную консультацию и помочь вам выбрать наиболее подходящие товары, отвечающие вашим потребностям и бюджету.
             Мы сотрудничаем с ведущими производителями электроники, чтобы предложить вам только самые качественные и надежные товары. Мы постоянно обновляем наш ассортимент, следя за последними трендами и инновациями в мире электроники. Вам не придется искать долго, чтобы найти то, что именно вам нужно.
-            </div>
-       
+        </div>
+
     </div>
 </div>

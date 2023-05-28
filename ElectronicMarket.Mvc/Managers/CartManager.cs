@@ -10,19 +10,21 @@ public class CartManager
 {
     private readonly ApplicationDbContext context;
     private readonly UserManager<IdentityUser> userManager;
+    private readonly ILogger<CartManager> _logger;
 
-    public CartManager(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+    public CartManager(ApplicationDbContext context, UserManager<IdentityUser> userManager, ILogger<CartManager> logger)
     {
         this.context = context;
         this.userManager = userManager;
+        _logger = logger;
     }
     private Cart Create(string userId)
     {
         var cart = new Cart {UserId=userId}; 
         context.Carts.Add(cart);
         context.SaveChanges();
+        _logger.LogInformation("Create new cart.");
         return cart;
-
     }
     private String GetUserId(ClaimsPrincipal user)
     {
@@ -37,6 +39,7 @@ public class CartManager
         cart.Products.Add(product);
         context.Carts.Update(cart);
         context.SaveChanges();
+        _logger.LogInformation("Create new product to cart.");
         return cart;
     }
     public Cart RemoveProduct(ClaimsPrincipal user, string productId)

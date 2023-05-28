@@ -1,18 +1,58 @@
-﻿<div>
+﻿@using ElectronicMarket.Domain.Models.Shop;
+<div class="container">
+
     <h1>Корзина</h1>
     <h2>Ваш заказ: <strong>Итого к оплате</strong> </h2>
-    <div>
-        <div class="form-floating mb-3">
 
-            <div>
+    <div class="row g-2 my-5">
+
+        @foreach (var cartItem in new Product[] { new Product { Name = "product1" }, new Product { Name = "product2" } })
+        {
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body row g-0 justify-content-start">
+                        <div class="col-1">
+                            <img class="img-fluid" width="80px" src="~/GooglePixel_4XL.png"/>
+                        </div>
+                        <div class="col-9">
+                            <div class="h5">@cartItem.Name</div>
+                            <div class="fw-bold">100$</div>
+                            <div>
+                                <form asp-action="RemoveItem" asp-route-productId="@cartItem.Id" method="post">
+                                <button type="submit" class="btn bi-dash-circle text-danger me-3"></button>
+                                <span class="fs-6">2</span>
+                                <i class="btn bi-plus-circle text-success ms-3"></i>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
                 
             </div>
+        }
 
-            <div class="justify-content-end d-flex me-1">
-                <a class="btn" style="background-color:#E5007E; color:white; border-radius:10px;">
-                    Оформить заказ
-                </a>
-            </div>
-        </div>
+
+
     </div>
+    <form asp-action="CreateOrder">
+
+    <div class="row g-3 justify-content-end">
+        <div class="col-12 col-md-4">
+            <input class="form-control" placeholder="Ваше имя"/>
+        </div>
+        <div class="col-12 col-md-4">
+            <input class="form-control" placeholder="Ваш телефон"/>
+
+        </div>
+        <div class="col-12 col-md-4">
+            <button type="submit" class="btn btn-accent form-control">
+                Оформить заказ
+            </button>
+        </div>
+    </form>
+    </div>
+
+
+
 </div>
