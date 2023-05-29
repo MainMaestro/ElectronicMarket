@@ -33,5 +33,11 @@ namespace ElectronicMarket.Mvc.Controllers
             _cartManager.RemoveProduct(User, productId);
             return RedirectToAction("Index");
         }
+        [HttpPost, Authorize]
+        public IActionResult AddItem(string productId)
+        {
+            _cartManager.AddProduct(User, productId);
+            return RedirectToAction("Index");
+        }
     }
 }

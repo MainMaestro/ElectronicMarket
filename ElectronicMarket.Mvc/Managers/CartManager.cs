@@ -39,8 +39,23 @@ public class CartManager
         cart.Products.Add(product);
         context.Carts.Update(cart);
         context.SaveChanges();
-        _logger.LogInformation("Create new product to cart.");
         return cart;
+    } 
+    public Cart AddProduct(ClaimsPrincipal user, String productId)
+    {
+        var product = context.Products.FirstOrDefault(c => c.Id == productId);
+        
+        var userId = GetUserId(user);
+        var cart = context.Carts.Include(c => c.Products).FirstOrDefault(c=>c.UserId==userId);
+        if (cart==null)
+        cart= Create(userId);
+        if(product==null)
+            return cart;
+        cart.Products.Add(product);
+        context.Carts.Update(cart);
+        context.SaveChanges();
+        return cart;
+        
     }
     public Cart RemoveProduct(ClaimsPrincipal user, string productId)
     {

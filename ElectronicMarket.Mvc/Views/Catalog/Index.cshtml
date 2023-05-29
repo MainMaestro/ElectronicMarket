@@ -21,10 +21,13 @@
                             <img class="img-fluid" width="190px" src="@product.ImgUrl" />
                         </div>
                         <div class="text-center ">
-                            <button asp-action="AddItem" asp-route-productId="@product.Id">
-                                <i class="bi bi-bag-plus-fill text-primary"></i>
-                                @product.Price руб.
-                            </button>
+                            <form asp-controller="CartController" asp-action="AddItem" asp-route-productId="@product.Id">
+                                <button >
+                                    <i class="bi bi-bag-plus-fill text-primary"></i>
+                                    @product.Price руб.
+                                </button>
+                            </form>
+                           
 
                         </div>
                     </div>
