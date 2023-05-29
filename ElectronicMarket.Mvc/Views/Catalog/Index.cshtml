@@ -16,13 +16,13 @@
             <div class="row justify-content-center">
                 @foreach (var product in Model)
                 {
-                    <div class="shadow p-3 mb-5 bg-body rounded col-2">
+                    <div class="shadow p-3 mb-5 bg-body rounded col-2 m-2">
                         <div style="text-align:center;">
                             <img class="img-fluid" width="190px" src="@product.ImgUrl" />
                         </div>
                         <div class="text-center ">
                             <form asp-controller="Cart" asp-action="AddItem" asp-route-productId="@product.Id">
-                                <button >
+                                <button class="border-0 bg-white">
                                     <i class="bi bi-bag-plus-fill text-primary"></i>
                                     @product.Price руб.
                                 </button>
