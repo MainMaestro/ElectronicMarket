@@ -1,8 +1,9 @@
 ﻿@using ElectronicMarket.Domain.Models.Shop;
 @model IEnumerable<Product>
 
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Каталог";
 
 }
 
@@ -12,6 +13,7 @@
     </h2>
     <div class="row">
         <div>
+            
 
             <div class="row justify-content-center">
                 @foreach (var product in Model)

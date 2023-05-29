@@ -2,7 +2,7 @@
 @model IEnumerable<Category>
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Меню";
 
 }
 <div style="overflow-x:hidden;">
@@ -10,14 +10,14 @@
         <h1>Покупайте электронику <br /> по выгодным ценам</h1>
         <a asp-controller="Catalog" asp-action="Index" class="btn btn-accent" style="">Перейти в каталог</a>
     </div>
-    <img class="object-fit-cover" src="~/хедер.jpg" />
+    <img class="object-fit-cover w-100 p-3" src="~/хедер.jpg" />
 
 </div>
 <div class="c-container" style="margin-left:6rem; margin-right:6rem;">
 
 
     <div>
-        <h2 class="d-flex justify-content-center" style="margin-top:100px; margin-bottom:100px;">
+        <h2 class="d-flex justify-content-center" style="margin-top:75px; margin-bottom:75px;">
             Каталог
         </h2>
         <div class="row justify-content-center">
@@ -34,8 +34,8 @@
             }
         </div>
     </div>
-    <div class="row justify-content-center g-2">
-        <div class="text-center h2 col-12 mt-5">
+    <div class="row justify-content-center g-2" style="margin-top:75px;">
+        <div class="text-center h2 col-12 ">
             О компании
         </div>
 
