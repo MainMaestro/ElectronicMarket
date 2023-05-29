@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElectronicMarket.Mvc.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230528094455_migration006")]
-    partial class migration006
+    [Migration("20230529152435_migration005")]
+    partial class migration005
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,9 +75,14 @@ namespace ElectronicMarket.Mvc.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CategoryId1")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -318,7 +323,9 @@ namespace ElectronicMarket.Mvc.Data.Migrations
 
                     b.HasOne("ElectronicMarket.Domain.Models.Shop.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId1");
+                        .HasForeignKey("CategoryId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
                 });

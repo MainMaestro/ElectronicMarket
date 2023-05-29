@@ -1,22 +1,25 @@
 ﻿@using ElectronicMarket.Domain.Models.Shop;
+@model Cart
 <div class="container">
 
     <h1>Корзина</h1>
     <h2>Ваш заказ: <strong>Итого к оплате</strong> </h2>
 
     <div class="row g-2 my-5">
+       
 
-        @foreach (var cartItem in new Product[] { new Product { Name = "product1" }, new Product { Name = "product2" } })
+
+          @foreach (var cartItem in Model.Products)
         {
             <div class="col-12">
                 <div class="card">
                     <div class="card-body row g-0 justify-content-start">
                         <div class="col-1">
-                            <img class="img-fluid" width="80px" src="~/GooglePixel_4XL.png"/>
+                            <img class="img-fluid" width="80px" src="@cartItem.ImgUrl"/>
                         </div>
                         <div class="col-9">
                             <div class="h5">@cartItem.Name</div>
-                            <div class="fw-bold">100$</div>
+                            <div class="fw-bold">@cartItem.Price руб.</div>
                             <div>
                                 <form asp-action="RemoveItem" asp-route-productId="@cartItem.Id" method="post">
                                 <button type="submit" class="btn bi-dash-circle text-danger me-3"></button>
@@ -38,13 +41,7 @@
     <form asp-action="CreateOrder">
 
     <div class="row g-3 justify-content-end">
-        <div class="col-12 col-md-4">
-            <input class="form-control" placeholder="Ваше имя"/>
-        </div>
-        <div class="col-12 col-md-4">
-            <input class="form-control" placeholder="Ваш телефон"/>
-
-        </div>
+       
         <div class="col-12 col-md-4">
             <button type="submit" class="btn btn-accent form-control">
                 Оформить заказ
