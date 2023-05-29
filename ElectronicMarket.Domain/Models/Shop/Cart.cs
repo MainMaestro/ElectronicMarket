@@ -11,7 +11,7 @@ public class Cart : DbEntity
 {
     public string UserId { get; set; }
     public IdentityUser User { get; set; }
-    public ICollection<Product> Products{ get; set; }=Array.Empty<Product>();
+    public ICollection<Product> Products{ get; set; }=new List<Product>();
     
     
 }

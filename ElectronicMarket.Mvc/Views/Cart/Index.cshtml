@@ -3,7 +3,7 @@
 <div class="container">
 
     <h1>Корзина</h1>
-    <h2>Ваш заказ: <strong>Итого к оплате</strong> </h2>
+    <h2>Ваш заказ: <strong>Итого к оплате</strong> @(Model.Products.Sum(p=>p.Price)) руб.</h2>
 
     <div class="row g-2 my-5">
 
