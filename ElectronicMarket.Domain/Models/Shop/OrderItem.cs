@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace ElectronicMarket.Domain.Models.Shop;
 
-public class Order : DbEntity
+public class OrderItem : DbEntity
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public decimal Price { get; set; }
     public Product Product { get; set; }
     public string ProductId { get; set; }
-
+    public int Count { get; set; }
 }

@@ -7,13 +7,13 @@
 <div class="container">
 
     <h1>Корзина</h1>
-    <h2>Ваш заказ: <strong>Итого к оплате</strong> @(Model.Cart.Products.Sum(p => p.Price)) руб.</h2>
+    @*<h2>Ваш заказ: <strong>Итого к оплате</strong> @(Model.Cart.Items.Sum(p => p.Price)) руб.</h2>*@
 
     <div class="row g-2 my-5">
 
 
 
-        @foreach (var cartItem in Model.Cart.Products)
+      @*  @foreach (var cartItem in Model.Cart.Items)
         {
             <div class="col-12">
                 <div class="card">
@@ -38,7 +38,7 @@
 
             </div>
         }
-
+*@
 
 
     </div>
@@ -56,17 +56,16 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Спасибо за покупку</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+                    
                     <div class="modal-body">
-                        С вами скоро свяжется оператор!
+                        <h1 class="modal-title fs-5 text-center   mb-3" id="exampleModalLabel">Спасибо за покупку</h1>
+                        <div class="mb-3">
+                            С вами скоро свяжется оператор!
+                        </div>
+                        <button type="button" class="btn btn-accent form-control  " data-bs-dismiss="modal">Хорошо</button>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-accent" data-bs-dismiss="modal">Хорошо</button>
-                        
-                    </div>
+                    
+                   
                 </div>
             </div>
         </div>

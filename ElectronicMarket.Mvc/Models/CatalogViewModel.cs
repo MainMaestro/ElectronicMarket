@@ -7,5 +7,6 @@ namespace ElectronicMarket.Mvc.Models
         
         public IEnumerable<Product> Products { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+        public Category CurrentCategory { get; set; }
     }
 }

@@ -33,10 +33,10 @@ public class CartManager
     public Cart AddProduct(ClaimsPrincipal user, Product product)
     {
         var userId = GetUserId(user);
-        var cart = context.Carts.Include(c => c.Products).FirstOrDefault(c=>c.UserId==userId);
+        var cart = context.Carts.Include(c => c.Items).FirstOrDefault(c=>c.UserId==userId);
         if (cart==null)
         cart= Create(userId);
-        cart.Products.Add(product);
+        //cart.Items.Add(product);
         context.Carts.Update(cart);
         context.SaveChanges();
         return cart;
@@ -46,12 +46,12 @@ public class CartManager
         var product = context.Products.FirstOrDefault(c => c.Id == productId);
         
         var userId = GetUserId(user);
-        var cart = context.Carts.Include(c => c.Products).FirstOrDefault(c=>c.UserId==userId);
+        var cart = context.Carts.Include(c => c.Items).FirstOrDefault(c=>c.UserId==userId);
         if (cart==null)
         cart= Create(userId);
         if(product==null)
             return cart;
-        cart.Products.Add(product);
+        //cart.Items.Add(product);
         context.Carts.Update(cart);
         context.SaveChanges();
         return cart;
@@ -60,13 +60,13 @@ public class CartManager
     public Cart RemoveProduct(ClaimsPrincipal user, string productId)
     {
         var userId = GetUserId(user);
-        var cart = context.Carts.Include(c => c.Products).FirstOrDefault(c => c.UserId == userId);
+        var cart = context.Carts.Include(c => c.Items).FirstOrDefault(c => c.UserId == userId);
         if (cart == null)
             cart = Create(userId);
-        var product = cart.Products.FirstOrDefault(c => c.Id==productId);
+        var product = cart.Items.FirstOrDefault(c => c.Id==productId);
         if (product!=null)
         {
-            cart.Products.Remove(product);
+            cart.Items.Remove(product);
         }
         context.Carts.Update(cart);
         context.SaveChanges();
@@ -75,7 +75,7 @@ public class CartManager
     public Cart GetCart(ClaimsPrincipal user)
     {
         var userId = GetUserId(user);
-        var cart = context.Carts.Include(c => c.Products).FirstOrDefault(c => c.UserId == userId);
+        var cart = context.Carts.Include(c => c.Items).FirstOrDefault(c => c.UserId == userId);
         if (cart == null)
             cart = Create(userId);
         return cart;

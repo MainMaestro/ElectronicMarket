@@ -18,8 +18,9 @@ namespace ElectronicMarket.Mvc.Controllers
         public IActionResult Index(string id)
         {
             var products = context.Products.Where(c => c.CategoryId == id).ToArray();
-            var categories = context.Categories.Except(c=> c.Id ==id).ToArray();
-            var viewModel = new CatalogViewModel { Products = products };
+            var categories = context.Categories.Where(c => c.Id != id).ToArray();
+            var category = context.Categories.FirstOrDefault(c => c.Id == id);
+            var viewModel=new CatalogViewModel{Products = products, Categories=categories, CurrentCategory= category!};
             return View(viewModel);
         }
     }

@@ -12,6 +12,6 @@ public class Product : DbEntity
     public string Description { get; set; }
     public decimal Price { get; set; }
     public Category? Category { get; set; }
-    public int CategoryId { get; set; }
+    public string CategoryId { get; set; }
     public string ImgUrl { get; set; }
 }
