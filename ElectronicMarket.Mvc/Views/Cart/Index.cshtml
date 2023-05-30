@@ -7,28 +7,30 @@
 <div class="container">
 
     <h1>Корзина</h1>
-    @*<h2>Ваш заказ: <strong>Итого к оплате</strong> @(Model.Cart.Items.Sum(p => p.Price)) руб.</h2>*@
+    <h2>Ваш заказ: <strong>Итого к оплате</strong> @(Model.Cart.Items.Sum(p => p.Product.Price)) руб.</h2>
 
     <div class="row g-2 my-5">
 
 
 
-      @*  @foreach (var cartItem in Model.Cart.Items)
+        @foreach (var cartItem in Model.Cart.Items)
         {
             <div class="col-12">
                 <div class="card">
                     <div class="card-body row g-0 justify-content-start">
                         <div class="col-1">
-                            <img class="img-fluid" width="80px" src="@cartItem.ImgUrl" />
+                            <img class="img-fluid" width="80px" src="@cartItem.Product.ImgUrl" />
                         </div>
                         <div class="col-9">
-                            <div class="h5">@cartItem.Name</div>
-                            <div class="fw-bold">@cartItem.Price руб.</div>
+                            <div class="h5">@cartItem.Product.Name</div>
+                            <div class="fw-bold">@cartItem.Product.Price руб.</div>
                             <div>
-                                <form asp-action="RemoveItem" asp-route-productId="@cartItem.Id" method="post">
-                                    <button type="submit" class="btn bi-dash-circle text-danger me-3"></button>
-                                    <span class="fs-6">1</span>
-                                    <i class="btn bi-plus-circle text-success ms-3"></i>
+                                <form class="d-inline" asp-action="RemoveItem" asp-route-productId="@cartItem.Product.Id" method="post">
+                                    <button type="submit" class="d-inline btn bi-dash-circle text-danger me-3"></button>
+                                </form>
+                                <span class="fs-6">@cartItem.Count</span>
+                                <form class="d-inline" asp-action="AddItem" asp-route-productId="@cartItem.Product.Id" method="post">
+                                    <button type="submit" class="d-inline btn bi-plus-circle text-success ms-3"></button>
                                 </form>
                             </div>
                         </div>
@@ -38,7 +40,7 @@
 
             </div>
         }
-*@
+
 
 
     </div>
