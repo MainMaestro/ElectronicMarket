@@ -1,5 +1,5 @@
 ﻿@using ElectronicMarket.Domain.Models.Shop;
-@model IEnumerable<Product>
+@model CatalogViewModel
 
 
 @{
@@ -16,7 +16,7 @@
             
 
             <div class="row justify-content-center">
-                @foreach (var product in Model)
+                @foreach (var product in Model.Products)
                 {
                     <div class="shadow p-3 mb-5 bg-body rounded col-2 m-2">
                         <div style="text-align:center;">

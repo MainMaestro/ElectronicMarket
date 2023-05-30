@@ -1,4 +1,5 @@
 ﻿using ElectronicMarket.Mvc.Managers;
+using ElectronicMarket.Mvc.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +20,11 @@ namespace ElectronicMarket.Mvc.Controllers
         public IActionResult Index()
         {
             var cart = _cartManager.GetCart(User);
-            return View(cart);
+            var viewModel = new CartViewModel
+            {
+                Cart = cart
+            };
+            return View(viewModel);
         }
         [HttpPost, Authorize]
         public IActionResult CreateOrder()

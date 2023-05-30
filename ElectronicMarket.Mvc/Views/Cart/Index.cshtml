@@ -1,5 +1,5 @@
 ﻿@using ElectronicMarket.Domain.Models.Shop;
-@model Cart
+@model CartViewModel
 @{
     ViewData["Title"] = "Корзина";
 
@@ -7,13 +7,13 @@
 <div class="container">
 
     <h1>Корзина</h1>
-    <h2>Ваш заказ: <strong>Итого к оплате</strong> @(Model.Products.Sum(p=>p.Price)) руб.</h2>
+    <h2>Ваш заказ: <strong>Итого к оплате</strong> @(Model.Cart.Products.Sum(p => p.Price)) руб.</h2>
 
     <div class="row g-2 my-5">
 
 
 
-        @foreach (var cartItem in Model.Products)
+        @foreach (var cartItem in Model.Cart.Products)
         {
             <div class="col-12">
                 <div class="card">

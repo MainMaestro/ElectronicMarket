@@ -1,4 +1,5 @@
 ﻿using ElectronicMarket.Mvc.Data;
+using ElectronicMarket.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ElectronicMarket.Mvc.Controllers
@@ -14,10 +15,12 @@ namespace ElectronicMarket.Mvc.Controllers
 
 
 
-        public IActionResult Index(int id)
+        public IActionResult Index(string id)
         {
-            var Products = context.Products.Where(c => c.CategoryId == id).ToArray();
-            return View(Products);
+            var products = context.Products.Where(c => c.CategoryId == id).ToArray();
+            var categories = context.Categories.Except(c=> c.Id ==id).ToArray();
+            var viewModel = new CatalogViewModel { Products = products };
+            return View(viewModel);
         }
     }
 }
