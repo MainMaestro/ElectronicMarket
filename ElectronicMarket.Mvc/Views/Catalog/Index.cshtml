@@ -12,22 +12,25 @@
         Каталог
     </h1>
 
-    
-    <div class="row">
-        <div class="justify-content-center d-flex">
 
-        
-        @foreach (var category in Model.Categories)
-        {
-            <div class="col-4 mx-2 d-flex justify-content-center">
-                <div class="shadow p-3 mb-5 bg-body rounded row">
-                    <a asp-controller="Catalog" asp-action="Index" asp-route-id="@category.Id" class="nav-link fs-3 text-center text-decoration-none">
-                            <img class="img-fluid" width="50px" src="@category.ImgUrl"  />
-                    @category.Name
+    <div class="">
+        <div class="row d-flex justify-content-center ">
+
+
+            @foreach (var category in Model.Categories)
+            {
+                <div class="col-4 justify-content-center"  >
+                    <a asp-controller="Catalog" asp-action="Index" asp-route-id="@category.Id" class=" nav-link fs-3 text-center text-decoration-none">
+                        <div class="shadow p-3 mb-5 bg-body rounded d-flex flex-column align-items-center" style="height:100%;">
+                            <div  style="height:220px;">
+                                <img class="img-fluid"  src="@category.ImgUrl" />
+                            </div>
+                            @category.Name
+
+                        </div>
                     </a>
                 </div>
-            </div>
-        }
+            }
         </div>
     </div>
     <h2 class="text-center text-muted mb-5">
